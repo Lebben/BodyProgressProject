@@ -1,7 +1,7 @@
 package com.example.bodyprogress;
 
 /**
- * Luokka sisältää BMI:n laskemiseen tarvittavan kaavan.
+ * Luokka sisältää BMI:n laskemiseen tarvittavan kaavan ja tiedot kuten painon ja pituuden.
  * @author Tatu Pulkkinen
  * @version 2.5.2020
  */
@@ -17,7 +17,7 @@ public class BMICalculator {
     }
 
     /**
-     * Palauttaa painon, ei ole tarvittu tämän tekemisessä.
+     * Palauttaa BMICalculatoriin annetun painon.
      * @return float paino.
      */
     public float getPaino(){
@@ -25,7 +25,7 @@ public class BMICalculator {
     }
 
     /**
-     * Palauttaa pituuden, ei ole tarvittu tämän tekemisessä.
+     * Palauttaa BMICalculatoriin annetun pituuden.
      * @return float pituus.
      */
     public float getPituus(){

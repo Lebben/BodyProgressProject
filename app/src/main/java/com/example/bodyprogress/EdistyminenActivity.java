@@ -39,6 +39,16 @@ public class EdistyminenActivity extends AppCompatActivity {
     private static ArrayAdapter<Edistyminen> adapter;
 
 
+    /**
+     * Kun sovellus palaa takaisin tälle näkymälle jossa on edistymisten listanäkymä, onResume() ottaa vastaan
+     * tallennetut tiedot "LisaaEdistyminen" aktiviteetista. Jos edistyminen jonka tiedot lisättiin ei ollut vielä olemassa
+     * niin tallennetaan se shared preferenceihin metodilla tallennaDataListaan() joka sisältää Olio listan.
+     * Sitten asetetaan lista näkymä olio listan mukaisesti.
+     * Lopussa poistetaan yksittäiset shared preference tiedot jottei näkymälle tule samoja edistymisiä.
+     * @author Tatu Pulkkinen
+     *
+     */
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -112,7 +122,10 @@ public class EdistyminenActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * Metodi tallentaa ArrayListan "edistymiset" Gsonilla Json stringiksi.
+     * @author Tatu Pulkkinen
+     */
     //tallentaa olio listan hyödyntämällä Gson/Json.
     public void tallennaDataListaan(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared list", MODE_PRIVATE);
@@ -123,6 +136,11 @@ public class EdistyminenActivity extends AppCompatActivity {
         editor.apply();
 
     }
+
+    /**
+     * Metodi hakee tallennetus Json stringin ja muuntaa sen takaisin Arraylistaksi, jos ei ole tallennettu mitään niin luo uuden ArrayListan.
+     * @author Tatu Pulkkinen
+     */
     //hakee olio listan sisältämän datan.
     public void haeDataLista() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared list", MODE_PRIVATE);

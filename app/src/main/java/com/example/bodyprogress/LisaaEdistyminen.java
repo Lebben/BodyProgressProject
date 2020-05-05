@@ -73,22 +73,13 @@ public class LisaaEdistyminen extends AppCompatActivity {
         BMI.setText(bmiS);
 
     }
-//    //luodaan intent jossa valitaan kuva galleriasta, ja aloitetaan aktiviteetti.
-//    private void avaaGalleria(){
-//        Intent valitseGalleriasta = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-//        startActivityForResult(valitseGalleriasta, PICK_IMAGE);
-//    }
-//    //asettaa valitun kuvan imageButtonin kohdalle jos kuvan valitseminen onnistui
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        //kun käyttäjä on valinnut kuvan onnistuneesti se laitetaan kuvan paikalle.
-//        if(requestCode == PICK_IMAGE && resultCode == RESULT_OK){
-//            ImageUri = data.getData();
-//            userImage.setImageURI(ImageUri);
-//        }
-//    }
 
+    /**
+     * Metodi tallentaa tiedot shared preferenceihin yksitellen jos kaikki kentät ovat täytetty, jos tyhjiä kenttiä on jäljellä,
+     * niin sovellus huomauttaa täyttämään kaikki kentät kunnes ne ovat täytetty. Kun kentät ovat valmiina ja käyttäjä painaa "tallenna"
+     * nappia niin sovellus lopettaa nykyisen aktiviteetin ja on tallentanut tiedot.
+     * @param v
+     */
     //painaessa tallena nappia tallentaa tiedot shared preferenceihin yksitellen. (oli ongelmia saada koko lista)
     public void onTallennaClick(View v){
 
