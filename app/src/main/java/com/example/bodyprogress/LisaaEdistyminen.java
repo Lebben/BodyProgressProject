@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
+/**
+ * @author Tatu Pulkkinen
+ */
 public class LisaaEdistyminen extends AppCompatActivity {
     public static final String PVM = "pvm";
     public static final String PAINO = "paino";
@@ -79,6 +82,7 @@ public class LisaaEdistyminen extends AppCompatActivity {
      * niin sovellus huomauttaa täyttämään kaikki kentät kunnes ne ovat täytetty. Kun kentät ovat valmiina ja käyttäjä painaa "tallenna"
      * nappia niin sovellus lopettaa nykyisen aktiviteetin ja on tallentanut tiedot.
      * @param v
+     * @author Tatu Pulkkinen & Leevi Laaksonen
      */
     //painaessa tallena nappia tallentaa tiedot shared preferenceihin yksitellen. (oli ongelmia saada koko lista)
     public void onTallennaClick(View v){
@@ -141,6 +145,15 @@ public class LisaaEdistyminen extends AppCompatActivity {
     }
 
 
+
+
+    /**
+     * @author Leevi Laaksonen
+     *Metodi lähettää Tarkistus luokkaan muuttujat ja saa booleanin takaisin (false jos kaikkia kenttiä ei täytetty)
+     * palauttaa saman booleanin kuin minkä saa luokasta Tarkistus
+     * @return tarkistaja
+     *
+     */
     //Metodi kutsuu tarkistaja luokasta booleanin(true jos kaikki kentät täytetty)
     public boolean tarkista() {
         paino = (EditText) findViewById(R.id.PainoText);

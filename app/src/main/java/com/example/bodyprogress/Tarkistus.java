@@ -21,7 +21,7 @@ public class Tarkistus {
 
     /**
      * Palauttaa booleanin true vain jos mikään string ei ole "tyhjä"
-     * @return boolean getTarkistus.
+     * @return boolean
      */
     public boolean getTarkistus(){
         if(nimi.isEmpty()) {return false;  }

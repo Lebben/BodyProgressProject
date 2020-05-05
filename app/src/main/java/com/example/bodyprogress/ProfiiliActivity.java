@@ -12,6 +12,11 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+/**
+ * Profiili activityn textViewit saavat arvonsa sharefPreferenceen tallennetuista arvoista
+ * onCreatessa haetaan arvot ja asetetaan textViewien paikalle.
+ * @author Leevi Laaksonen
+ */
 public class ProfiiliActivity extends AppCompatActivity {
 
     String nimi;
@@ -21,6 +26,9 @@ public class ProfiiliActivity extends AppCompatActivity {
     String bmi;
     String hauis;
     String vyotaro;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

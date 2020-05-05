@@ -2,8 +2,9 @@ package com.example.bodyprogress;
 
 /**
  * Luokka sisältää BMI:n laskemiseen tarvittavan kaavan ja tiedot kuten painon ja pituuden.
- * @author Tatu Pulkkinen
+ * @author Tatu Pulkkinen, Iivari Kuula
  * @version 2.5.2020
+ *
  */
 public class BMICalculator {
     private float BMI;

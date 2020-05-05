@@ -15,6 +15,14 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
+/**
+ * Luodaan profiili ottamalla editText kentistä arvot, tarkistamalla tarkista() metodilla ovatko
+ * edit textit tyhjiä. Jos eivät niin tallennetaan srvot sharedpreferenceen josta profiiliActivity ne
+ * ottaa sitten vastaan.
+ * @author Leevi Laaksonen
+ *
+ */
+
 public class CreateProfiiliActivity extends AppCompatActivity {
 
 
@@ -55,6 +63,12 @@ public class CreateProfiiliActivity extends AppCompatActivity {
 
 
     }
+
+
+    /**
+     * @author Leevi Laaksonen
+     * Metodilla tallenetaan editText kenttien arvot sharedPreferenceen
+     */
 
     //"luodaan" profiili tallentamalla String muuttujat shared preferenceen josta profiili activity ne lataa.
     public void luoProfiili() {
@@ -103,7 +117,13 @@ public class CreateProfiiliActivity extends AppCompatActivity {
         finish();
     }
 
-
+    /**
+     * @author Leevi Laaksonen
+     *      *Metodi lähettää Tarkistus luokkaan muuttujat ja saa booleanin takaisin (false jos kaikkia kenttiä ei täytetty)
+     *      * palauttaa saman booleanin kuin minkä saa luokasta Tarkistus
+     *      * @return tarkistaja
+     *
+     */
     //Metodi kutsuu tarkistaja luokasta booleanin(true jos kaikki kentät täytetty)
     public boolean tarkista() {
         nimiText = (EditText) findViewById(R.id.editTextCProfileName);

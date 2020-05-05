@@ -29,6 +29,8 @@ public class Edistyminen {
      * @param vyotaro, on henkilön vyötärönmitta String muodossa. Käyttäjä asettaa itse tämän ja se noudetaan tallentaessa.
      */
 
+
+
     public Edistyminen(String pvm, int ika, float paino, float pituus, String bmi, String lisatietoja, String hauis, String vyotaro) {
         this.pvm = pvm;
         this.ika = ika;
