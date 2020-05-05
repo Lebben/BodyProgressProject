@@ -19,11 +19,13 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import static com.example.bodyprogress.LisaaEdistyminen.BMIARVO;
+import static com.example.bodyprogress.LisaaEdistyminen.HAUIS;
 import static com.example.bodyprogress.LisaaEdistyminen.IKA;
 import static com.example.bodyprogress.LisaaEdistyminen.LISATIEDOT;
 import static com.example.bodyprogress.LisaaEdistyminen.PAINO;
 import static com.example.bodyprogress.LisaaEdistyminen.PITUUS;
 import static com.example.bodyprogress.LisaaEdistyminen.PVM;
+import static com.example.bodyprogress.LisaaEdistyminen.VYOTARO;
 
 public class EdistyminenActivity extends AppCompatActivity {
 
@@ -37,6 +39,43 @@ public class EdistyminenActivity extends AppCompatActivity {
     private static ArrayAdapter<Edistyminen> adapter;
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //päivittää listanäkymän kun palataan activityyn
+        //saadaan tiedot jotka on lisätty yksitellen ja käännetään ne niiden oikeille muodoille jotka Edistyminen olio vaatii
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String paivamaara = prefs.getString(PVM, "ei löydy pvm");
+        int ika = prefs.getInt(IKA, 0);
+        float paino = prefs.getFloat(PAINO, (float) 0.0);
+        float pituus = prefs.getFloat(PITUUS, (float) 0.0);
+        String bmiArvo = prefs.getString(BMIARVO, "0");
+        String hauis = prefs.getString(HAUIS, "");
+        String vyotaro = prefs.getString(VYOTARO, "");
+        String lisatiedotEdistys = prefs.getString(LISATIEDOT, "ei löydy lisatietoja");
+
+        //jos on lisätty uusi tieto niin suorittaa seuraavan koodin
+        if (!paivamaara.contains("ei löydy pvm")) {
+
+            //lisää olion saaduilla tiedoilla olio listaan, tallentaa shared preferenceihin listana. hakee päivitetyn olio listan ja asettaa näkymän sen mukaan.
+            edistymiset.add(new Edistyminen(paivamaara, ika, paino, pituus, bmiArvo, lisatiedotEdistys, hauis, vyotaro));
+            tallennaDataListaan();
+            haeDataLista();
+            listView.setAdapter(adapter);
+
+            //lopuksi poistaa yksittäiset shared preferencet, mutta ei listaa joka tallennettiin juuri äsken.
+            //Ilman tätä painaessa päivitä tulisi sama edistys uudelleen.
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor edit = preferences.edit();
+            edit.remove(PVM);
+            edit.remove(IKA);
+            edit.remove(PAINO);
+            edit.remove(PITUUS);
+            edit.remove(BMIARVO);
+            edit.remove(LISATIEDOT);
+            edit.apply();
+        }
+    }
 
 
     @Override
@@ -45,9 +84,9 @@ public class EdistyminenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edistyminen);
 
         listView = (ListView) findViewById(R.id.listView);
-        edistyminen = (TextView) findViewById(R.id.EdistyminenOtsikko);
         edistysLisaa = (Button) findViewById(R.id.LisaaEdistysButton);
-        paivita = (Button) findViewById(R.id.buildList);
+
+
 
         //haetaan jo valmiiksi luodut edistymiset ja laitetan näytille.
         haeDataLista();
@@ -71,40 +110,8 @@ public class EdistyminenActivity extends AppCompatActivity {
         Intent lisaaEdistyminen = new Intent(this, LisaaEdistyminen.class);
         startActivity(lisaaEdistyminen);
     }
-    //päivittää listanäkymän
-    public void onPaivitaClick (View v) {
 
-        //saadaan tiedot jotka on lisätty yksitellen ja käännetään ne niiden oikeille muodoille jotka Edistyminen olio vaatii
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String paivamaara = prefs.getString(PVM, "ei löydy pvm");
-        int ika = prefs.getInt(IKA, 0);
-        float paino = prefs.getFloat(PAINO, (float) 0.0);
-        float pituus = prefs.getFloat(PITUUS, (float) 0.0);
-        float bmiArvo = prefs.getFloat(BMIARVO, (float) 0.0);
-        String lisatiedotEdistys = prefs.getString(LISATIEDOT, "ei löydy lisatietoja");
 
-        //jos on lisätty uusi tieto niin suorittaa seuraavan koodin
-        if (!paivamaara.contains("ei löydy pvm")) {
-
-            //lisää olion saaduilla tiedoilla olio listaan, tallentaa shared preferenceihin listana. hakee päivitetyn olio listan ja asettaa näkymän sen mukaan.
-            edistymiset.add(new Edistyminen(paivamaara, ika, paino, pituus, bmiArvo, lisatiedotEdistys));
-            tallennaDataListaan();
-            haeDataLista();
-            listView.setAdapter(adapter);
-
-            //lopuksi poistaa yksittäiset shared preferencet, mutta ei listaa joka tallennettiin juuri äsken.
-            //Ilman tätä painaessa päivitä tulisi sama edistys uudelleen.
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-            SharedPreferences.Editor edit = preferences.edit();
-            edit.remove(PVM);
-            edit.remove(IKA);
-            edit.remove(PAINO);
-            edit.remove(PITUUS);
-            edit.remove(BMIARVO);
-            edit.remove(LISATIEDOT);
-            edit.apply();
-        }
-    }
 
     //tallentaa olio listan hyödyntämällä Gson/Json.
     public void tallennaDataListaan(){

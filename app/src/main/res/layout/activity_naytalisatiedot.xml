@@ -10,126 +10,103 @@
         android:id="@+id/paivamaaraLisa"
         android:layout_width="101dp"
         android:layout_height="31dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/Paivamaara_text"
+        android:text="Päivämäärä: "
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/ikaLisa"
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
     <TextView
         android:id="@+id/ikaLisa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="44dp"
         android:text="@string/Ika_text"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/painoLisa"
+        app:layout_constraintStart_toStartOf="@+id/paivamaaraLisa"
         app:layout_constraintTop_toBottomOf="@+id/paivamaaraLisa" />
 
     <TextView
         android:id="@+id/painoLisa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/Paino_text"
+        android:text="Paino: "
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/pituusLisa"
+        app:layout_constraintStart_toStartOf="@+id/ikaLisa"
         app:layout_constraintTop_toBottomOf="@+id/ikaLisa" />
 
     <TextView
         android:id="@+id/pituusLisa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/Pituus_text"
+        android:text="Pituus: "
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bmiLisa"
+        app:layout_constraintStart_toStartOf="@+id/painoLisa"
         app:layout_constraintTop_toBottomOf="@+id/painoLisa" />
 
     <TextView
         android:id="@+id/bmiLisa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/BMI_text"
+        android:text="BMI: "
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/hauisLisa"
+        app:layout_constraintStart_toStartOf="@+id/pituusLisa"
         app:layout_constraintTop_toBottomOf="@+id/pituusLisa" />
 
     <TextView
         android:id="@+id/lisatiedotTulos"
-        android:layout_width="366dp"
-        android:layout_height="174dp"
+        android:layout_width="337dp"
+        android:layout_height="145dp"
         android:text="@string/Kuvaus_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bmiLisa"
-        app:layout_constraintVertical_bias="0.986" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toBottomOf="@+id/lisatiedotLisa" />
 
     <TextView
         android:id="@+id/ikaTulos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="44dp"
-        android:text="@string/Ika_text"
+        android:text="Ikä: "
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/ikaLisa"
-        app:layout_constraintTop_toBottomOf="@+id/paivamaaraLisa" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/ikaLisa"
+        app:layout_constraintStart_toEndOf="@+id/ikaLisa" />
 
     <TextView
         android:id="@+id/painoTulos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="32dp"
         android:text="@string/Paino_text"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/painoLisa"
-        app:layout_constraintTop_toBottomOf="@+id/ikaLisa" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/painoLisa"
+        app:layout_constraintStart_toEndOf="@+id/painoLisa" />
 
     <TextView
         android:id="@+id/pituusTulos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="32dp"
         android:text="@string/Pituus_text"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/pituusLisa"
-        app:layout_constraintTop_toBottomOf="@+id/painoLisa" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/pituusLisa"
+        app:layout_constraintStart_toEndOf="@+id/pituusLisa" />
 
     <TextView
         android:id="@+id/bmiTulos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="32dp"
         android:text="@string/BMI_tulos_text"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/bmiLisa"
-        app:layout_constraintTop_toBottomOf="@+id/pituusLisa" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/bmiLisa"
+        app:layout_constraintStart_toEndOf="@+id/bmiLisa" />
 
     <TextView
         android:id="@+id/lisatiedotLisa"
@@ -141,17 +118,90 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/lisatiedotTulos"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/paivamaaraLisa"
+        app:layout_constraintTop_toTopOf="@+id/guideline18" />
 
     <TextView
         android:id="@+id/paivamaaraTulos"
         android:layout_width="110dp"
         android:layout_height="31dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="16dp"
         android:text="@string/Paivamaara_text"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/paivamaaraLisa"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/paivamaaraLisa"
+        app:layout_constraintStart_toEndOf="@+id/paivamaaraLisa" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04136253" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.99" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <TextView
+        android:id="@+id/hauisLisa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hauis: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/vyotaroLisa"
+        app:layout_constraintStart_toStartOf="@+id/bmiLisa"
+        app:layout_constraintTop_toBottomOf="@+id/bmiLisa" />
+
+    <TextView
+        android:id="@+id/hauisTulos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/hauisLisa"
+        app:layout_constraintStart_toEndOf="@+id/hauisLisa" />
+
+    <TextView
+        android:id="@+id/vyotaroLisa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vyötärö: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="@+id/hauisLisa"
+        app:layout_constraintTop_toBottomOf="@+id/hauisLisa" />
+
+    <TextView
+        android:id="@+id/vyotaroTulos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/vyotaroLisa"
+        app:layout_constraintStart_toEndOf="@+id/vyotaroLisa" />
 </androidx.constraintlayout.widget.ConstraintLayout>

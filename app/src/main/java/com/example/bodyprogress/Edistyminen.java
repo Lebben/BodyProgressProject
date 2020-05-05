@@ -6,17 +6,21 @@ public class Edistyminen {
     private int ika;
     private float paino;
     private float pituus;
-    private float bmi;
+    private String bmi;
     private String lisatietoja;
+    private String hauis;
+    private String vyotaro;
 
 
-    public Edistyminen(String pvm, int ika, float paino, float pituus, float bmi, String lisatietoja) {
+    public Edistyminen(String pvm, int ika, float paino, float pituus, String bmi, String lisatietoja, String hauis, String vyotaro) {
         this.pvm = pvm;
         this.ika = ika;
         this.paino = paino;
         this.pituus = pituus;
         this.bmi = bmi;
         this.lisatietoja = lisatietoja;
+        this.hauis = hauis;
+        this.vyotaro = vyotaro;
 
     }
     public String getPvm(){
@@ -31,12 +35,14 @@ public class Edistyminen {
     public float getPituus(){
         return this.pituus;
     }
-    public float getBmi(){
+    public String getBmi(){
         return this.bmi;
     }
     public String getLisatietoja(){
         return this.lisatietoja;
     }
+    public String getHauis(){ return this.hauis;}
+    public String getVyotaro(){ return this.vyotaro; }
 
     @Override
     public String toString() {

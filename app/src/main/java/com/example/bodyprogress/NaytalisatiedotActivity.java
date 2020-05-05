@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 public class NaytalisatiedotActivity extends AppCompatActivity {
 
-    private TextView pvm, ika, paino, pituus, bmi, lisatiedot;
+    private TextView pvm, ika, paino, pituus, bmi, lisatiedot, hauis, vyotaro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,8 @@ public class NaytalisatiedotActivity extends AppCompatActivity {
         pituus = findViewById(R.id.pituusTulos);
         bmi = findViewById(R.id.bmiTulos);
         lisatiedot = findViewById(R.id.lisatiedotTulos);
+        hauis = findViewById(R.id.hauisTulos);
+        vyotaro = findViewById(R.id.vyotaroTulos);
 
         //saadaan painetun paivamaaran sijainti.
         int position = getIntent().getIntExtra(EdistyminenActivity.EXTRA, 0);
@@ -39,11 +41,19 @@ public class NaytalisatiedotActivity extends AppCompatActivity {
         String stringPituus = saatuPituus + " cm";
         pituus.setText(stringPituus);
 
-        float saatuBmi = EdistyminenActivity.edistymiset.get(position).getBmi();
-        String stringBmi = Float.toString(saatuBmi);
+        String stringBmi = EdistyminenActivity.edistymiset.get(position).getBmi();
         bmi.setText(stringBmi);
 
         String saatuLisatieto = EdistyminenActivity.edistymiset.get(position).getLisatietoja();
         lisatiedot.setText(saatuLisatieto);
+
+        String saatuHauis = EdistyminenActivity.edistymiset.get(position).getHauis();
+        String stringHauis = saatuHauis + " cm";
+        hauis.setText(stringHauis);
+
+        String saatuVyotaro = EdistyminenActivity.edistymiset.get(position).getVyotaro();
+        String stringVyotaro = saatuVyotaro + " cm";
+        vyotaro.setText(stringVyotaro);
+
     }
 }
