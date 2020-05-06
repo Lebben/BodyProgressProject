@@ -23,6 +23,8 @@ public class WelcomeActivity extends AppCompatActivity {
          */
 
 
+
+
     }
     public void onButtonCreate (View v){
         Intent intent = new Intent(this, CreateProfiiliActivity.class);
