@@ -1,5 +1,10 @@
 package com.example.bodyprogress;
 
+/**@author Leevi Laaksonen
+ *activity toistuu ensimmäisen kerran kun sovellus avataan.
+ * Luo profiili nappia painettaessa siirrytään profiilin luomis activityyn.
+ *
+ */
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,11 +21,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
 
 
-        /**@author Leevi Laaksonen
-         *activity toistuu ensimmäisen kerran kun sovellus avataan.
-         * Luo profiili nappia painettaessa siirrytään profiilin luomis activityyn.
-         *
-         */
 
 
 

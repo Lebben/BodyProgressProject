@@ -1,4 +1,7 @@
 package com.example.bodyprogress;
+/**
+ * @author Tatu Pulkkinen
+ */
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;

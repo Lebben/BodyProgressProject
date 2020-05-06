@@ -1,5 +1,11 @@
 package com.example.bodyprogress;
-
+/**
+ * Luodaan profiili ottamalla editText kentistä arvot, tarkistamalla tarkista() metodilla ovatko
+ * edit textit tyhjiä. Jos eivät niin tallennetaan srvot sharedpreferenceen josta profiiliActivity ne
+ * ottaa sitten vastaan.
+ * @author Leevi Laaksonen
+ *
+ */
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -15,13 +21,7 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
-/**
- * Luodaan profiili ottamalla editText kentistä arvot, tarkistamalla tarkista() metodilla ovatko
- * edit textit tyhjiä. Jos eivät niin tallennetaan srvot sharedpreferenceen josta profiiliActivity ne
- * ottaa sitten vastaan.
- * @author Leevi Laaksonen
- *
- */
+
 
 public class CreateProfiiliActivity extends AppCompatActivity {
 
